@@ -1,5 +1,6 @@
 #pragma once
 #include <stdlib.h>
+#include <windows.h>
 
 namespace Cookiep {
 	namespace Commands {
@@ -8,6 +9,8 @@ namespace Cookiep {
 		CommandManager buildGlobalManager();
 		extern CommandManager GLOBAL_MANAGER;
 		void _clrscrn();
+		void _setSystemTime();
+		void printSystemTime(SYSTEMTIME time);
 	}
 }
 
