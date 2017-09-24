@@ -7,9 +7,16 @@
 
 #include "targetver.h"
 
-#include <stdio.h>
-#include <tchar.h>
+#include <string>
+#include <iostream>
+#include <vector>
+#include <functional>
+#include <algorithm>
+
 
 
 
 // TODO: reference additional headers your program requires here
+
+#include "Cookie+.h"
+#include "CommandManager.h"

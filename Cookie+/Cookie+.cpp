@@ -2,28 +2,12 @@
 //
 
 #include "stdafx.h"
-#include <string>
-#include <iostream>
-#include <cstdio>
+
+
+
 
 namespace Cookiep {
 	using namespace std;
-
-	void parsecmd(string input);
-	void pause(bool printmsg);
-	void println(string line);
-	void prinln();
-
-	string getInput();
-
-
-
-	void parsecmd(string input) {
-		if (input == "hello")println("hi.");
-		else
-			println("That command isn't registered...");
-
-	}
 
 	void pause(bool printmsg) {
 		if (printmsg)
@@ -45,6 +29,17 @@ namespace Cookiep {
 	void prinln() {
 		cout << "\n";
 	}
+
+	string toLowerCase(string input)
+	{
+		string output;
+		transform(input.begin(), input.end(), back_inserter(output), tolower);
+		return output;
+	}
+
+	bool strcasecmp(string s1, string s2) {
+		return toLowerCase(s1) == toLowerCase(s2);
+	}
 }
 
 
@@ -53,10 +48,16 @@ using namespace Cookiep;
 
 int main(int argc, char*args)
 {
+	CommandManager manager;
+	Command hi = Command([&]() { println("Hello"); });
+	hi.addName("Hello");
+	hi.addName("Hi");
+
+	manager.addCommand(hi);
 
 	bool run = true;
 	while (run) {
-		parsecmd(getInput());
+		manager.run(getInput());
 	}
 
 
