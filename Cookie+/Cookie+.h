@@ -12,4 +12,6 @@ namespace Cookiep {
 	bool strcasecmp(string s1, string s2);
 
 	string getInput();
+
+	extern bool run;
 }

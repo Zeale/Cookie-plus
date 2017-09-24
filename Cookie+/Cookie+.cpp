@@ -11,7 +11,7 @@ namespace Cookiep {
 
 	void pause(bool printmsg) {
 		if (printmsg)
-			println("Press any key to continue.");
+			println("Hit enter/return to continue.");
 		getchar();
 	}
 
@@ -40,6 +40,8 @@ namespace Cookiep {
 	bool strcasecmp(string s1, string s2) {
 		return toLowerCase(s1) == toLowerCase(s2);
 	}
+
+	bool run = true;
 }
 
 
@@ -50,7 +52,8 @@ int main(int argc, char*args)
 {
 	
 
-	bool run = true;
+	println("Please enter a command or \"help\" to continue. (Don't use quotes.)");
+
 	while (run) {
 		Commands::GLOBAL_MANAGER.run(getInput());
 		println();
