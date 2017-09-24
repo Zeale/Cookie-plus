@@ -20,3 +20,4 @@
 
 #include "Cookie+.h"
 #include "CommandManager.h"
+#include "DefaultCommands.h"

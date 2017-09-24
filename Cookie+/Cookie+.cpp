@@ -23,10 +23,10 @@ namespace Cookiep {
 
 	void println(string line) {
 		cout << line;
-		prinln();
+		println();
 	}
 
-	void prinln() {
+	void println() {
 		cout << "\n";
 	}
 
@@ -48,16 +48,12 @@ using namespace Cookiep;
 
 int main(int argc, char*args)
 {
-	CommandManager manager;
-	Command hi = Command([&]() { println("Hello"); });
-	hi.addName("Hello");
-	hi.addName("Hi");
-
-	manager.addCommand(hi);
+	
 
 	bool run = true;
 	while (run) {
-		manager.run(getInput());
+		Commands::GLOBAL_MANAGER.run(getInput());
+		println();
 	}
 
 

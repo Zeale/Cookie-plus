@@ -7,7 +7,7 @@ namespace Cookiep {
 
 	void pause(bool printmsg);
 	void println(std::string line);
-	void prinln();
+	void println();
 	string toLowerCase(string input);
 	bool strcasecmp(string s1, string s2);
 
