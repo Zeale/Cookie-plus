@@ -1,4 +1,5 @@
 #pragma once
+#include <stdlib.h>
 
 namespace Cookiep {
 	namespace Commands {
@@ -6,6 +7,7 @@ namespace Cookiep {
 		void _help();
 		CommandManager buildGlobalManager();
 		extern CommandManager GLOBAL_MANAGER;
+		void _clrscrn();
 	}
 }
 
