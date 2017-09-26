@@ -9,6 +9,10 @@
 namespace Cookiep {
 	using namespace std;
 
+	void clearScreen() {
+		system("cls");
+	}
+
 	void pause(bool printmsg) {
 		if (printmsg)
 			println("Hit enter/return to continue.");

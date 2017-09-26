@@ -12,7 +12,7 @@ namespace Cookiep {
 		//v0.2c2
 		Command CLRSCRN = Command(_clrscrn);
 		//v0.2c3
-		Command SETSYSTIME = Command(_setSystemTime), GETSYSTIME = Command([]() {SYSTEMTIME st; LPSYSTEMTIME lpst=&st; GetSystemTime(lpst); printSystemTime(st); });
+		Command SETSYSTIME = Command(_setSystemTime), GETSYSTIME = Command([]() {SYSTEMTIME st; LPSYSTEMTIME lpst = &st; GetSystemTime(lpst); printSystemTime(st); });
 
 
 		CommandManager GLOBAL_MANAGER = buildGlobalManager();
@@ -46,13 +46,13 @@ namespace Cookiep {
 
 		//v0.2c2
 		void _clrscrn() {
-			system("cls");
+			clearScreen();
 			println("Please enter a command or \"help\" to continue. (Don't use quotes.)");
 		}
 
 		//v0.2c3
 		void _setSystemTime() {
-			_clrscrn();
+			clearScreen();
 			println("Please input a year (From 1601 to 30827.");
 			int in;
 			cin >> in;
@@ -80,10 +80,11 @@ namespace Cookiep {
 			cin >> in;
 			systime.wMilliseconds = in;
 			if (!SetSystemTime(&systime))
-				if (GetLastError() == 87) {
+				if (GetLastError() == 87)
 					println("The time value was invalid. (Perhaps it was too far in the future or past...)");
-				}
-				
+				else;
+			else println("The time was successfully set.");
+
 
 		}
 

@@ -14,4 +14,6 @@ namespace Cookiep {
 	string getInput();
 
 	extern bool run;
+
+	void clearScreen();
 }
