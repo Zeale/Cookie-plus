@@ -54,7 +54,7 @@ using namespace Cookiep;
 
 int main(int argc, char*args)
 {
-	
+
 
 	println("Please enter a command or \"help\" to continue. (Don't use quotes.)");
 

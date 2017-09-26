@@ -13,15 +13,19 @@ namespace Cookiep {
 		Command CLRSCRN = Command(_clrscrn);
 		//v0.2c3
 		Command SETSYSTIME = Command(_setSystemTime), GETSYSTIME = Command([]() {SYSTEMTIME st; LPSYSTEMTIME lpst = &st; GetSystemTime(lpst); printSystemTime(st); });
+		//v0.3c1
+		Command GETNAME = Command([&]() {
+			TCHAR username[UNLEN + 1];
+			DWORD namesize = UNLEN + 1;
+			if (GetUserName((TCHAR*)username, &namesize))
+				std::wcout << "Your username is: " << username << L".\n";
+			else
+				println("An error occurred while retrieving your username.");
+		});
+
 
 
 		CommandManager GLOBAL_MANAGER = buildGlobalManager();
-
-		void Commands::addDefaultCommands(CommandManager manager)
-		{
-			manager.addCommand(HELLO);
-			manager.addCommand(HELP);
-		}
 
 		//v0.1
 		void _help() {
@@ -133,6 +137,9 @@ namespace Cookiep {
 			GETSYSTIME.addName("get-time");
 			GETSYSTIME.addName("gettime");
 			GETSYSTIME.addName("getsystime");
+			//v0.3c1
+			GETNAME.addName("get-name");
+			GETNAME.addName("getname");
 
 
 
@@ -144,6 +151,7 @@ namespace Cookiep {
 			manager.addCommand(CLRSCRN);
 			manager.addCommand(SETSYSTIME);
 			manager.addCommand(GETSYSTIME);
+			manager.addCommand(GETNAME);
 
 			return manager;
 		}

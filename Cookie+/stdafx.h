@@ -12,6 +12,8 @@
 #include <vector>
 #include <functional>
 #include <algorithm>
+#include <Lmcons.h>
+#include <windows.h>
 
 
 
