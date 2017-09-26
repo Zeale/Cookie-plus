@@ -12,7 +12,7 @@ namespace Cookiep {
 		//v0.2c2
 		Command CLRSCRN = Command(_clrscrn);
 		//v0.2c3
-		Command SETSYSTIME = Command(_setSystemTime), GETSYSTIME = Command([]() {SYSTEMTIME time; GetSystemTime(&time); printSystemTime(time); });
+		Command SETSYSTIME = Command(_setSystemTime), GETSYSTIME = Command([]() {SYSTEMTIME st; LPSYSTEMTIME lpst=&st; GetSystemTime(lpst); printSystemTime(st); });
 
 
 		CommandManager GLOBAL_MANAGER = buildGlobalManager();
@@ -28,10 +28,20 @@ namespace Cookiep {
 			using namespace Cookiep;
 			println("Showing help:");
 			println();
+			println();
+			println();
 			println("help ~ Shows help.");
+			println();
 			println("hello|hi|greetings ~ Greets you.");
+			println();
 			println("exit|close|quit ~ Exits Cookie+.");
+			println();
 			println("clrscrn|clear-screen|cls|clr|cs|clear ~ Clears the console.");
+			println();
+			println("settime|set-system-time|set-time|setsystime ~ Sets the time for your computer. If the time value is invalid, then this will do nothing.");
+			println();
+			println("gettime|get-system-time|get-time|getsystime ~ Gets the time for your system. This should be the same as looking in the bottom right of your computer, apart from the fact that this will show you milliseconds.");
+			println();
 		}
 
 		//v0.2c2
@@ -54,6 +64,9 @@ namespace Cookiep {
 			println("Please input a day of the week. (From 0-6)");
 			cin >> in;
 			systime.wDayOfWeek = in;
+			println("Please input a day of the month. (From 0-31");
+			cin >> in;
+			systime.wDay = in;
 			println("Please input an hour. (From 0-23)");
 			cin >> in;
 			systime.wHour = in;
@@ -66,7 +79,11 @@ namespace Cookiep {
 			println("Please input a millisecond. (From 0-999)");
 			cin >> in;
 			systime.wMilliseconds = in;
-			SetSystemTime(&systime);
+			if (!SetSystemTime(&systime))
+				if (GetLastError() == 87) {
+					println("The time value was invalid. (Perhaps it was too far in the future or past...)");
+				}
+				
 
 		}
 
