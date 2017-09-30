@@ -22,6 +22,8 @@ namespace Cookiep {
 			else
 				println("An error occurred while retrieving your username.");
 		});
+		//v0.3c2
+		Command OPEN_WEBSITE = Command([&]() {ShellExecute(NULL, "open", "http://dusttoash.org/", NULL, NULL, SW_SHOWNORMAL); });
 
 
 
@@ -45,6 +47,8 @@ namespace Cookiep {
 			println("settime|set-system-time|set-time|setsystime ~ Sets the time for your computer. If the time value is invalid, then this will do nothing.");
 			println();
 			println("gettime|get-system-time|get-time|getsystime ~ Gets the time for your system. This should be the same as looking in the bottom right of your computer, apart from the fact that this will show you milliseconds.");
+			println();
+			println("website ~ Opens Cookie+'s website in your default browser.");
 			println();
 		}
 
@@ -140,6 +144,9 @@ namespace Cookiep {
 			//v0.3c1
 			GETNAME.addName("get-name");
 			GETNAME.addName("getname");
+			//0.2c2
+			OPEN_WEBSITE.addName("open-website");
+			OPEN_WEBSITE.addName("website");
 
 
 
@@ -152,6 +159,7 @@ namespace Cookiep {
 			manager.addCommand(SETSYSTIME);
 			manager.addCommand(GETSYSTIME);
 			manager.addCommand(GETNAME);
+			manager.addCommand(OPEN_WEBSITE);
 
 			return manager;
 		}
