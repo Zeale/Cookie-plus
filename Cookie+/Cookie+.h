@@ -5,7 +5,7 @@ using namespace std;
 
 namespace Cookiep {
 
-	void pause(bool printmsg);
+	void pause(bool printmsg=true);
 	void println(std::string line);
 	void println();
 	string toLowerCase(string input);

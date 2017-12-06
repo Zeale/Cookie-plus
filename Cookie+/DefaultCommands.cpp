@@ -8,7 +8,7 @@ namespace Cookiep {
 		//v0.1
 		Command HELLO = Command([&]() { println("Hello"); }), HELP = Command(Commands::_help);
 		//v0.2c1
-		Command EXIT = Command([&]() { run = false; println("Exiting now..."); pause(true); });
+		Command EXIT = Command([&]() { run = false; println("Exiting now..."); pause(); });
 		//v0.2c2
 		Command CLRSCRN = Command(_clrscrn);
 		//v0.2c3
