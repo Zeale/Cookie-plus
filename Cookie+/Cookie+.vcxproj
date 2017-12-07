@@ -160,6 +160,11 @@
   <ItemGroup>
     <ResourceCompile Include="Cookie+.rc" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\..\..\Downloads\Cookie+.ico" />
+    <Image Include="..\..\Krow\src\resources\krow\resources\graphics\cookie+256px.png" />
+    <Image Include="icon1.ico" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
