@@ -6,7 +6,21 @@ namespace Cookiep {
 		using namespace Cookiep;
 
 		//v0.1
-		Command HELLO = Command([&]() { println("Hello"); }), HELP = Command(Commands::_help);
+		Command HELLO = Command([&]() {
+			switch (rand()%3)
+			{
+			case 0:
+				println("Hello");
+				break;
+			case 1:
+				println("Hi");
+				break;
+			case 2:
+				println("Greetings");
+				break;
+			}
+		}), HELP = Command(Commands::_help);
+
 		//v0.2c1
 		Command EXIT = Command([&]() { run = false; println("Exiting now..."); pause(); });
 		//v0.2c2
