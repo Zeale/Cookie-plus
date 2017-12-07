@@ -7,7 +7,7 @@ namespace Cookiep {
 
 		//v0.1
 		Command HELLO = Command([&]() {
-			switch (rand()%3)
+			switch (rand() % 3)
 			{
 			case 0:
 				println("Hello");
@@ -64,6 +64,7 @@ namespace Cookiep {
 			println();
 			println("website ~ Opens Cookie+'s website in your default browser.");
 			println();
+			println("getname|get-name ~ Prints your computer username.");
 		}
 
 		//v0.2c2
@@ -120,6 +121,9 @@ namespace Cookiep {
 			cout << "Minute: " << time.wMinute << "\n";
 			cout << "Second: " << time.wSecond << "\n";
 			cout << "Millisecond: " << time.wMilliseconds << "\n";
+
+			println();
+			println(to_string(time.wMonth) + "/" + to_string(time.wDay) + "/" + to_string(time.wYear) + "--" + to_string(time.wHour) + ":" + to_string(time.wMinute) + ":" + to_string(time.wSecond));
 		}
 
 
