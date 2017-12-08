@@ -26,7 +26,7 @@ namespace Cookiep {
 		//v0.2c2
 		Command CLRSCRN = Command(_clrscrn);
 		//v0.2c3
-		Command SETSYSTIME = Command(_setSystemTime), GETSYSTIME = Command([]() {SYSTEMTIME st; LPSYSTEMTIME lpst = &st; GetSystemTime(lpst); printSystemTime(st); });
+		Command SETSYSTIME = Command(_setSystemTime), GETSYSTIME = Command([]() {SYSTEMTIME st; LPSYSTEMTIME lpst = &st; GetSystemTime(lpst); st.wHour -= (st.wHour < 7 ? -18 : 6); printSystemTime(st); });
 		//v0.3c1
 		Command GETNAME = Command([&]() {
 			TCHAR username[UNLEN + 1];
